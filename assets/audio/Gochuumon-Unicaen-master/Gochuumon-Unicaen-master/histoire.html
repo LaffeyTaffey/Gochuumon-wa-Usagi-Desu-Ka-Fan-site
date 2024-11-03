@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Website for a university project" name="description">
+    <meta content="Slytaria" name="author">
+    <title>Gochuumon wa Usagi Desu ka?</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+            <p>Chargement en cours...</p>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top affix-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">Gochuumon wa Usagi Desu ka?</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="histoire.html">histoire</a>
+                        </li>
+                        <li>
+                            <a href="staff.html">staff</a>
+                        </li>
+                        <li>
+                            <a href="characters.html">personnages</a>
+                        </li>
+                        <li>
+                            <a href="episodes.html">épisodes</a>
+                        </li>
+                        <li>
+                            <a href="music.html">musique</a>
+                        </li>
+                        <li>
+                            <a href="galerie.html">galerie</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="containerbody">
+        <div class="row">
+            <div class="pull-md-3 bd-content">
+                <h1>Histoire</h1>
+                <hr>
+                <p>Kokoa Hoto est une fille positive et énergique qui se lie d'amitié avec quelqu'un en seulement trois secondes. Après le déménagement avec la famille Kafuu afin d'assister à une école secondaire loin de la maison, elle se lie d'amitié immédiatement avec la petite-fille timide du fondateur de "Lapin House Cafe", Chino Kafuu, qui est souvent vu avec le lapin parlant, Tippy, sur sa tête.</p>
+                <p>Après avoir commencé à travailler comme serveuse en échange d'une chambre et pension, Kokoa se lie d'amitié avec une autre employée à temps partiel, Rize Tedeza, qui a un comportement inhabituel et des capacités physiques extraordinaires en raison de son éducation militaire; Chiya Ujimatsu, une serveuse d'un café voisin qui fait tout à son propre rythme; et Sharo Kirima, une autre serveuse dans un autre café qui a à l'apparence noble en dépit d'être pauvre.</p>
+                <p>Avec niaiserie pelucheux et amusant contenant de la caféine, Gochuumon wa Usagi Desu ka? est une comédie touchante sur les cinq jeunes serveuses et leurs aventures amusantes dans la ville qu'elles appellent maison.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left"> Copyright © <a href="https://github.com/Slytaria/Gochuumon-Unicaen" target="_blank" title="github">Aurélien Thorel</a> 2017. All right reserved. </p>
+                <div class="pull-right">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/cheet.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    window.addEventListener("load", function() {
+        var load_screen = document.getElementById("spinner-wrapper");
+        $(".spinner-wrapper").remove();
+    });
+    </script>
+</body>
+
+</html>

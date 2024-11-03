@@ -1,0 +1,281 @@
+.manga-reader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    z-index: 1000;
+    display: none;
+}
+
+.manga-reader.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-bg {
+    background: var(--background);
+}
+
+.manga-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--primary-pink);
+}
+
+.manga-title {
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.manga-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.manga-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--secondary-pink);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.manga-btn:hover {
+    background: var(--primary-pink);
+    transform: scale(1.05);
+}
+
+.manga-content {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.manga-page {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.manga-navigation {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.page-counter {
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.back-to-entries {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-pink);
+    color: var(--text-color);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Add these to your manga.css */
+.manga-reader-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.bg-pink {
+    background-color: var(--primary-pink);
+    color: var(--text-color);
+}
+
+.btn-pink {
+    background-color: var(--primary-pink);
+    color: var(--text-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+    background-color: var(--secondary-pink);
+    transform: scale(1.05);
+}
+
+.manga-content {
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a1a1a;
+    position: relative;
+}
+
+.manga-page {
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.navigation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.prev-area,
+.next-area {
+    flex: 1;
+    cursor: pointer;
+}
+
+.prev-area:hover,
+.next-area:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.page-counter {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.entry-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.entry-card-hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#read-manga {
+    scroll-margin-top: 100px;
+    /* Accounts for any fixed headers */
+}
+
+.fullscreen-reader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+}
+
+.reader-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.3s ease;
+}
+
+.reader-header:hover {
+    opacity: 1;
+}
+
+.reader-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.reader-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reader-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.reader-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.manga-page-fs {
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: contain;
+}
+
+.page-info {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Animation for fullscreen transition */
+.fullscreen-reader {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
