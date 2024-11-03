@@ -325,7 +325,7 @@
 #pickaxe-inline-Kafuu_Chino_8JTND {
     position: fixed;
     bottom: 90px;
-    left: 20px;
+    left: 20px !important;
     z-index: 999;
     opacity: 0;
     transform: translateY(20px);
@@ -338,6 +338,16 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
+}
+
+#pickaxe-inline-Kafuu_Chino_8JTND[style*="right"] {
+    right: auto !important;
+    left: 20px !important;
+}
+
+#pickaxe-inline-Kafuu_Chino_8JTND iframe {
+    left: 20px !important;
+    right: auto !important;
 }
 
 .blushing-emoji {

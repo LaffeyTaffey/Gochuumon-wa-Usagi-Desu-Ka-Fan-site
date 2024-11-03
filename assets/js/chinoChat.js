@@ -1,4 +1,15 @@
-window.PICKAXE=window.PICKAXE||{pickaxes:[],style:"kHsjoCQGgI0GWASmgIdIA2CHA0wGQyCwBQBUiEBzQQC+EgGQwgMA3gLICDMAoAnQgvFSCsUIPQYgIHqAEw4NXUgIz6DFQ4OkwghP2AGnoMFJgKAFA8gEA4QAI9gVPBABGqBU3gAggTMBAUQ6ApYkAAgIFMxwLcKgRvlAhyyAIG8DFAoAF1QOTugMODACreB2osAqaIBABQAAGgaINAr0OASwUCiIQGBARk6AUOiAo9GAq6qAZUKAAkOAhKAAoIBDz4AAB4CkT4AR8YCSIYBygIASwoDgAoCTBoCTQIDT04B01oBj1IBDAYD1o4AWNYCmoIC29oBCM4CXl4CBgIDEU4DDN4Cyc4CnsoDReIATdoCiWYCXaoAZlIAVBYAYGoAaYoAntoD68YA3OIAb1ICIBIDZpIDEQIDBQIC3NIAgDIAIToBLxIAkBYDAAoCAFoAPLoC+L4D4GICOR4ACwIAKPIC0TICBUoBBwoAAGUAClKAQDJAIABgEi6QAYBQAoQC6JoAAykAAVGAL0BADEPgF5EQDokYBRYUAwpCACcRAFglgFxiQDPEYBIY8ATSOAAc9AONggAE2wAnioAQGcAxEqAOaFAEaCgBxHQB6RYA8kEAEPIATUAQJWADAZAAOIgDRZwCLxYA2pEABHaASmTANOAgFFPGSAGXTAIuhgEJEwDoBYAl7MACKaAURdAAYygBgmuSAELpAAAZgF8RwDnfYAy00At6CAQUFAC4JgHoSQDr9YAiYMATRqACn9AO3YgHXZQBiMIAy3sAGEiAQKhABk3AEzAADNgAA4QCBEIAyy0AcxmAPUpACi5gBcrwAYCIAE2UADzSAPBLAE2egAy9wApv4AtJMAGL2AHC5AMsZgA8uwBQSIBVWsA2SKABPdAFxJgAA8QCIJIA3SEAgsCADYTAKdGgHjMQAaF4ASyEAJ1OAHLhAF5zgHQEQAlvIBQVEAwAaARU1AGs0gHwfwDUc4AIgYAl4BlsMAkqmAOaJAFvIgAsFQBACsAc9RAF+qQAzY8AEPnAC9qQApAkAEbzABqmQAyY0ABcnAFGbwAABCAA="},window.PICKAXE.pickaxes.push({id:"Kafuu_Chino_8JTND",type:"fab"});const{id:_fid}=window.PICKAXE.pickaxes[0];fetch(`https://embed.pickaxeproject.com/axe/api/script/${_fid}`).then((e=>e.json())).then((({v:e})=>{const t=`https://cdn.jsdelivr.net/gh/pickaxeproject/cdn@${e}/dist`;if(!document.querySelector(`script[src="${t}/bundle.js"]`)){const e=document.createElement("script");e.src=t+"/bundle.js",e.defer=!0,document.head.appendChild(e)}}));
+const clickSound = new Audio('assets/audio/buttonEffects/button-202966.mp3');
+const hoverSound = new Audio('assets/audio/buttonEffects/click-buttons-ui-menu-sounds-effects-button-2-203594.mp3');
+const backSound = new Audio('assets/audio/buttonEffects/old-radio-button-click-97549.mp3');
+const tabSound = new Audio('assets/audio/buttonEffects/switch-150130.mp3');
+
+// Function to play sound
+function playSound(sound) {
+    sound.currentTime = 0;
+    sound.play();
+}
+
+window.PICKAXE=window.PICKAXE||{pickaxes:[],style:"kHsjoCQGgI0GWASmgIdIA2CHA0wGQyCwBQBUiEBzQQC+EgGQwgMA3gLICDMAoAnQgvFSCsUIPQYgIHqAEw4NXUgIz6DFQ4OkwghP2AGnoMFJgKAFA8gEA4QAI9gVPBABGqBU3gAggTEBAUQ6ApYkAAgIFMxwLcKgRvlAhyyAIG8DFAoAF1QOTugMODACreB2osAqaIAYhAOaAh6ECCr4BCSwACigJ2BAyEaA0TCAqqOAQquAQ2WAoAKAAISAz6CAB0MAT4DRhIABEYBgkoCicoACEoDm4IAgkoCzc4C2s4DUVIABY4CDQ4AV1YCgFoDWhoAzloB3IoCAl4BTYYA3pIBTo4CykoBYh4BWsYBY84BKooB0d4DlGYD59IBCF4C1+oDRB4AY2oC0F4AEG4CEiIBA2YBAxIAUoYAMt4BOIIDECIAFS4ACJIALYICXQIAXh4AMX4Ab+IBgR4AeAYAmBYCpWIDhQAAZABTADIFgABgQCyQIABZEAAAyACZRAMpdgFRAABAgAPXwCZgIBuocAdEiAKLDACEogESiQAqEoBqL0Ax4iAJBHACWRgADmwDpsIAAm0Ak8WAB4zAGIjgBzQwDjIYBOI0APSGAGkZAAhpAGbACBKgAYDQCBxIBKLMARaKAG1JAH45gCUyQBpwIAoZ8A1N2ATLpAMXQgGECQDzAoAQ9UABEuAKHvAIKZgAwTAAQgEBdQCADIBviMAc76AGWnAFvQgGCgwAXBIB9CUA9fqAETBAKZNgAU/QB27IA66MAsRiAGW9AAwkgGBUQAMi4BmQEAAGaAABxAECIgFljwA5jIAehUAlFyACZXAAwEgAJswCHGoAeCUAps+ANlbAJTfgFYSQAMXoBGF0ApYyAB5dAKgkgCqtQBsgYBCe8ALiSAAB5AEQSgBukQDBYIAGwkAU5+AfGZAA0LgElkQATqYBOXEALzmAOcJABLdgCgqQBgA4AipsAtZqAfQ/AOo1gAQ4wCLgIBy2EAR1SAGNFAC3UgCLBYAQAqAG/UgDfqoAs2OAA75gAvaoAqQKAAm6gCahoAsGKAGXBgBRG4AAARAA="},window.PICKAXE.pickaxes.push({id:"Kafuu_Chino_8JTND",type:"inline"});const{id:_fid}=window.PICKAXE.pickaxes[0];fetch(`https://embed.pickaxeproject.com/axe/api/script/${_fid}`).then((e=>e.json())).then((({v:e})=>{const t=`https://cdn.jsdelivr.net/gh/pickaxeproject/cdn@${e}/dist`;if(!document.querySelector(`script[src="${t}/bundle.js"]`)){const e=document.createElement("script");e.src=t+"/bundle.js",e.defer=!0,document.head.appendChild(e)}}));
 
 window.addEventListener('load', () => {
     const chatCircle = document.querySelector('.chat-bot-circle');
@@ -85,6 +96,7 @@ window.addEventListener('load', () => {
 
     // Update click handler
     chatCircle.addEventListener('click', () => {
+        playSound(clickSound);
         if (!isPopupOpen) {
             chatWidget.classList.add('show');
             chatBubble.classList.remove('show');
@@ -96,6 +108,11 @@ window.addEventListener('load', () => {
             setTimeout(showNextMessage, 1000);
             isPopupOpen = false;
         }
+    });
+
+    // Hover sound to chat circle
+    chatCircle.addEventListener('mouseenter', () => {
+        playSound(hoverSound);
     });
 
     // Close popup when clicking outside
@@ -124,6 +141,7 @@ document.querySelector('.tippy-companion').addEventListener('click', (e) => {
 
 document.querySelector('.tippy-companion').addEventListener('click', (e) => {
     e.stopPropagation();
+    playSound(tabSound);
     const menu = document.querySelector('.coffee-menu');
     menu.classList.toggle('show');
 });
@@ -139,6 +157,7 @@ document.addEventListener('click', (e) => {
 
 document.querySelectorAll('.coffee-menu li').forEach(item => {
     item.addEventListener('click', () => {
+        playSound(tabSound);
         item.style.animation = 'menuItemPop 0.5s ease';
         setTimeout(() => {
             item.style.animation = '';
@@ -148,6 +167,11 @@ document.querySelectorAll('.coffee-menu li').forEach(item => {
         const itemName = item.textContent.split('¥')[0].trim();
         chatBubble.textContent = `Would you like to order ${itemName}? It's one of our favorites!`;
         chatBubble.classList.add('show');
+
+        });
+
+        item.addEventListener('mouseenter', () => {
+            playSound(hoverSound);
     });
 });
 
@@ -191,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
     buyButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent triggering parent li click event
+            playSound(clickSound);
             const item = this.closest('li');
             const price = parseInt(item.dataset.price);
             const itemName = item.textContent.split('🐰')[0].trim();
