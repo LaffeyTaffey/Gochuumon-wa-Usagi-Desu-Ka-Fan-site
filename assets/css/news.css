@@ -14,23 +14,128 @@
     color: var(--text-color);
 }
 
-/* Hero Section */
-#hero {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    transform: translateZ(0);
-    will-change: transform;
+/* rss feed */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-rssapp-imageboard {
-    position: fixed;
-    top: 0;
-    left: 0;
+._b8m2p {
+    background: var(--background);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+._b8m2p:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+._c4n3q {
+    padding: 15px;
+}
+
+._i3k7l {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 1.1em;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+._d5r7s {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+._d5r7s img {
     width: 100%;
     height: 100%;
-    z-index: 0;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+._b8m2p:hover ._d5r7s img {
+    transform: scale(1.05);
+}
+
+._e6t1u {
+    padding: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+._f2w8v {
+    display: flex;
+    justify-content: space-around;
+}
+
+._g9x4h {
+    color: var(--text-color);
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+._g9x4h:hover {
+    color: var(--primary-pink);
+}
+
+._g9x4h i {
+    font-size: 1.1em;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--background);
+    border-top: 4px solid var(--primary-pink);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    ._b8m2p {
+        margin: 10px;
+    }
+
+    ._d5r7s {
+        height: 180px;
+    }
+
+    ._i3k7l {
+        font-size: 1em;
+    }
+
+    ._g9x4h {
+        font-size: 0.8em;
+    }
 }
 
 /* Character Cards */

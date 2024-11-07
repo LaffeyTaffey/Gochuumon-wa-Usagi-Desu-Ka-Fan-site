@@ -14,13 +14,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.pageYOffset;
-    const heroSection = document.querySelector('#hero');
-    heroSection.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-});
-
 // Character card hover effect
 const characterCards = document.querySelectorAll('.character-card');
 characterCards.forEach(card => {
@@ -39,3 +32,77 @@ galleryItems.forEach(item => {
         // Implement lightbox functionality
     });
 });
+
+$(document).ready(function() {
+            const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+            const rssUrl = corsProxy + 'https://www.happyou.info/fs/gen.php?u=1965150567&p=292715482';
+            
+            function createPostCard(title, imgSrc) {
+                if (!imgSrc) return ''; // Skip if no image
+
+                return `
+                    <div class="_b8m2p">
+                        <div class="_c4n3q">
+                            <h5 class="_i3k7l">${title}</h5>
+                        </div>
+                        <div class="_d5r7s">
+                            <img src="${imgSrc}" alt="Post image">
+                        </div>
+                        <div class="_e6t1u">
+                            <div class="_f2w8v">
+                                <div class="_g9x4h">
+                                    <i class="fas fa-heart"></i> Like
+                                </div>
+                                <div class="_g9x4h">
+                                    <i class="fas fa-retweet"></i> Share
+                                </div>
+                                <div class="_g9x4h">
+                                    <i class="fas fa-bookmark"></i> Save
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            $.ajax({
+                url: rssUrl,
+                dataType: 'xml',
+                success: function(data) {
+                    $('#loading').hide();
+                    let postsHtml = '';
+                    
+                    // Create a map to store unique posts
+                    const uniquePosts = new Map();
+
+                    $(data).find('item').each(function() {
+                        const $item = $(this);
+                        const description = $item.find('description').text();
+                        const tempDiv = $('<div>').html(description);
+                        const imgSrc = tempDiv.find('img').attr('src');
+                        
+                        if (imgSrc && !uniquePosts.has(imgSrc)) {
+                            const title = $item.find('title').text() || 'Image Post';
+                            uniquePosts.set(imgSrc, {
+                                title: title,
+                                imgSrc: imgSrc
+                            });
+                        }
+                    });
+
+                    // Convert unique posts to HTML
+                    uniquePosts.forEach(post => {
+                        postsHtml += createPostCard(post.title, post.imgSrc);
+                    });
+
+                    $('#posts-container').html(postsHtml);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#loading').html(`
+                        <div class="alert alert-danger">
+                            Error loading content: ${textStatus}
+                        </div>
+                    `);
+                }
+            });
+        });
