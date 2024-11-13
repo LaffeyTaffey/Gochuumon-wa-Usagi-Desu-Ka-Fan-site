@@ -123,7 +123,7 @@
     color: var(--text-color);
     font-size: 0.9em;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -131,6 +131,7 @@
 
 .rss-interaction-item:hover {
     color: var(--primary-pink);
+    transform: scale(1.05);
 }
 
 .rss-interaction-item:hover .rss-upvote-count,
@@ -140,6 +141,34 @@
 
 .rss-interaction-item i {
     font-size: 1.1em;
+    transition: transform 0.2s ease;
+}
+
+.rss-interaction-item:hover i {
+    transform: rotate(15deg);
+}
+
+.sort-options {
+    margin-bottom: 20px;
+}
+
+.sort-options label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.sort-options select {
+    padding: 5px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    background: var(--background);
+    color: var(--text-color);
+}
+
+.sort-options select:focus {
+    border-color: var(--primary-pink);
 }
 
 @keyframes postEnter {
