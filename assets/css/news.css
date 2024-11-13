@@ -24,24 +24,53 @@
     margin: 0 auto;
 }
 
-._b8m2p {
+.rss-post-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: var(--text-color-muted);
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+.rss-post-meta i {
+    margin-right: 5px;
+}
+
+.rss-post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.rss-post-link:hover {
+    text-decoration: none;
+}
+
+.rss-upvote-count, 
+.rss-comment-count {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.rss-post-container {
     background: var(--background);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-._b8m2p:hover {
+.rss-post-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-._c4n3q {
+.rss-post-header {
     padding: 15px;
 }
 
-._i3k7l {
+.rss-post-title {
     color: var(--text-color);
     margin: 0;
     font-size: 1.1em;
@@ -53,34 +82,44 @@
     text-overflow: ellipsis;
 }
 
-._d5r7s {
+.rss-post-author {
+    color: var(--text-color);
+}
+
+.rss-post-date {
+    color: var(--text-color);
+}
+
+.rss-post-image {
     width: 100%;
     height: 250px;
     overflow: hidden;
 }
 
-._d5r7s img {
+.rss-post-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-._b8m2p:hover ._d5r7s img {
+.rss-post-container:hover .rss-post-image img {
     transform: scale(1.05);
 }
 
-._e6t1u {
+
+.rss-post-interactions {
     padding: 15px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-._f2w8v {
+.rss-interaction-container {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
-._g9x4h {
+.rss-interaction-item {
     color: var(--text-color);
     font-size: 0.9em;
     cursor: pointer;
@@ -90,12 +129,45 @@
     gap: 5px;
 }
 
-._g9x4h:hover {
+.rss-interaction-item:hover {
     color: var(--primary-pink);
 }
 
-._g9x4h i {
+.rss-interaction-item:hover .rss-upvote-count,
+.rss-interaction-item:hover .rss-comment-count {
+    color: var(--primary-pink);
+}
+
+.rss-interaction-item i {
     font-size: 1.1em;
+}
+
+@keyframes postEnter {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes postHover {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.post-enter {
+    animation: postEnter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+}
+
+.post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .loading-spinner {
@@ -126,21 +198,74 @@
         padding: 10px;
     }
 
-    ._b8m2p {
+    .rss-post-container {
         margin: 10px;
     }
 
-    ._d5r7s {
+    .rss-post-image {
         height: 200px;
     }
 
-    ._i3k7l {
+    .rss-post-title {
         font-size: 1em;
     }
 
-    ._g9x4h {
+    .rss-interaction-item {
         font-size: 0.8em;
     }
+}
+
+/* Section Active State */
+#rss-feed {
+    transition: all 0.5s ease;
+    opacity: 0.7;
+}
+
+#rss-feed.section-active {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.comment-section {
+    margin-top: 10px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.comment-input:focus {
+    border-color: var(--primary-pink);
+}
+
+.submit-comment {
+    padding: 5px 10px;
+    background-color: var(--primary-pink);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-comment:hover {
+    background-color: var(--secondary-pink);
+}
+
+.comments-list {
+    margin-top: 10px;
+}
+
+.comment {
+    background: #f9f9f9;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 /* Character Cards */
