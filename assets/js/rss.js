@@ -68,6 +68,7 @@ $(document).on('click', '.share', function() {
 $(document).ready(function() {
     const rssUrl = '/reddit-proxy';
     let postsArray = [];
+    let displayedPostsCount = 6; // Number of posts to initially display
 
     function extractPostDetails($entry) {
         const description = $entry.find('content').text();
@@ -89,10 +90,24 @@ $(document).ready(function() {
 
     function displayPosts(posts) {
         let postsHtml = '';
-        posts.forEach(post => {
+        const postsToShow = posts.slice(0, displayedPostsCount); // Show only the first 'displayedPostsCount' posts
+        postsToShow.forEach(post => {
             postsHtml += createPostCard(post);
         });
         $('#posts-container').html(postsHtml);
+
+        // Show or hide the "Show More" and "Show Less" buttons
+        if (posts.length > displayedPostsCount) {
+            $('#show-more').show();
+        } else {
+            $('#show-more').hide();
+        }
+
+        if (displayedPostsCount > 6) {
+            $('#show-less').show();
+        } else {
+            $('#show-less').hide();
+        }
     }
 
     function sortPosts(criteria) {
@@ -131,7 +146,7 @@ $(document).ready(function() {
                 const $entry = $(this);
                 const post = extractPostDetails($entry);
 
-                if (post.imgSrc && !uniquePosts.has(post.imgSrc )) {
+                if (post.imgSrc && !uniquePosts.has(post.imgSrc)) {
                     uniquePosts.set(post.imgSrc, post);
                 }
             });
@@ -148,6 +163,16 @@ $(document).ready(function() {
     $('#sort-select').on('change', function() {
         const selectedSort = $(this).val();
         sortPosts(selectedSort);
+    });
+
+    $('#show-more').on('click', function() {
+        displayedPostsCount += 6; // Increase the count by 6
+        displayPosts(postsArray); // Redisplay posts with the updated count
+    });
+
+    $('#show-less').on('click', function() {
+        displayedPostsCount = Math.max(displayedPostsCount - 6, 6); // Decrease the count by 6 but not below 6
+        displayPosts(postsArray); // Redisplay posts with the updated count
     });
 
     $(document).on('click', '.upvote', function() {
@@ -247,7 +272,7 @@ $(document).ready(function() {
             { label: 'year', seconds: 31536000 },
             { label: 'month', seconds: 2592000 },
             { label: 'week', seconds: 604800 },
-            { label: 'day ', seconds: 86400 },
+            { label: 'day', seconds: 86400 },
             { label: 'hour', seconds: 3600 },
             { label: 'minute', seconds: 60 },
             { label: 'second', seconds: 1 }
@@ -264,6 +289,7 @@ $(document).ready(function() {
 
         return 'just now';
     }
+
     $.ajax({
         url: rssUrl,
         dataType: 'xml',

@@ -297,6 +297,25 @@
     margin-top: 5px;
 }
 
+.themed-button {
+    padding: 10px 20px;
+    background-color: var(--primary-pink);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.themed-button:hover {
+    background-color: var(--secondary-pink);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
 /* Character Cards */
 .character-grid {
     display: grid;
