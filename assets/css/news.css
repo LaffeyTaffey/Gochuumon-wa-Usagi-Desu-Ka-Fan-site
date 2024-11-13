@@ -14,7 +14,7 @@
     color: var(--text-color);
 }
 
-/* rss feed */
+/* RSS Feed Styles */
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -46,11 +46,16 @@
     margin: 0;
     font-size: 1.1em;
     font-family: 'Comic Sans MS', cursive;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 ._d5r7s {
     width: 100%;
-    height: 200px;
+    height: 250px;
     overflow: hidden;
 }
 
@@ -126,7 +131,7 @@
     }
 
     ._d5r7s {
-        height: 180px;
+        height: 200px;
     }
 
     ._i3k7l {
