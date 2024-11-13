@@ -43,14 +43,26 @@ Welcome to the unofficial fan site dedicated to "Is the Order a Rabbit?" (ご注
 ## 🚀 Getting Started
 
 1. Clone the repository:
-```
+```bash
 git clone https://github.com/LaffeyTaffey/Gochuumon-wa-Usagi-Desu-Ka-Fan-site.git
 2. Navigate to the project directory:
 cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
 
 3. Open index.html in your preferred web browser
 ```
+### Prerequisites (for subreddit rss)
+- Ensure you have Node.js installed on your machine.
 
+### Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/LaffeyTaffey/Gochuumon-wa-Usagi-Desu-Ka-Fan-site.git
+2. Navigate to the project directory:
+   ```bash
+   cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
+3. Install the required Node.js packages:
+   ```bash
+   npm install express axios cors 
 - 🛠️ **Technologies Used**
     - HTML5
     - CSS3/SASS
