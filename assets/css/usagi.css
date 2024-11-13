@@ -1104,3 +1104,45 @@ body {
         font-size: 14px;
     }
 }
+
+/* Custom Scrollbar Styles */
+html {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--primary-pink) var(--background); /* For Firefox */
+}
+
+/* Scrollbar styles for WebKit browsers */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-pink);
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-pink);
+}
+
+/* Dark theme scrollbar */
+[data-theme="dark"] {
+    scrollbar-color: var(--primary-pink-dark) var(--background-dark); /* For Firefox */
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--background-dark); 
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--primary-pink-dark);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-pink-dark);
+}
