@@ -62,7 +62,7 @@ cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
    cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
 3. Install the required Node.js packages:
    ```bash
-   npm install express axios cors 
+   npm install express axios cors xml2js
 - 🛠️ **Technologies Used**
     - HTML5
     - CSS3/SASS
@@ -71,6 +71,7 @@ cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
     - Font Awesome
     - AOS (Animate On Scroll)
     - Web Audio API
+    - NodeJS (express, axios, cors, xml2js)
 
 - 📱 **Compatibility**
     - 💻 Desktop Browsers (Chrome, Firefox, Safari, Edge)

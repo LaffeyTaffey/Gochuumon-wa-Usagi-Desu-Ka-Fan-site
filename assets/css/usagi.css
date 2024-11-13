@@ -35,6 +35,9 @@
         --sign-width: 90px;
         --sign-height: 90px;
         --chain-length: 40px;
+    
+        --transition-duration: 0.3s;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 [data-theme="dark"] {
@@ -47,6 +50,7 @@
     --player-background: var(--player-background-dark);
     --footer-text: var(--footer-text-dark);
     --quiz-text: var(--quiz-text-dark);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 /* Default (light) theme */
