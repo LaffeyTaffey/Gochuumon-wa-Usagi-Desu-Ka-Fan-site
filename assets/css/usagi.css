@@ -799,7 +799,6 @@ body {
         width: calc(100% - 20px); 
         max-width: 170px;
         max-height: 30px;
-        z-index: 100;
         transform: none;
         opacity: 1;
         transition: all 0.3s ease;

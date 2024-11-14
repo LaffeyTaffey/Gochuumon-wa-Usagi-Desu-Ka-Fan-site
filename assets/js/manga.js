@@ -309,44 +309,71 @@ initializeReader() {
     }
 
     bindEvents() {
-
-        $(document).on('click', '.volume-select', (e) => {
+    $(document).on('click', '.volume-select', (e) => {
         e.preventDefault();
         const volume = parseInt($(e.currentTarget).data('volume'));
         this.loadChapter(volume, this.volumeChapters[volume][0]);
     });
 
     // Chapter selection
-$(document).on('click', '.chapter-select', (e) => {
-    e.preventDefault();
-    const chapter = $(e.currentTarget).data('chapter');
-    // Convert to number only if it's not a decimal chapter
-    const parsedChapter = chapter.toString().includes('.') ? chapter : parseFloat(chapter);
-    this.loadChapter(this.currentVolume, parsedChapter);
-});
+    $(document).on('click', '.chapter-select', (e) => {
+        e.preventDefault();
+        const chapter = $(e.currentTarget).data('chapter');
+        const parsedChapter = chapter.toString().includes('.') ? chapter : parseFloat(chapter);
+        this.loadChapter(this.currentVolume, parsedChapter);
+    });
 
-    // Volume selection
+    // Fullscreen controls
+    $('.enter-fullscreen').click(() => this.enterFullscreen());
+    $('.exit-fullscreen').click(() => this.exitFullscreen());
+    $('.download-page, .download-page-fs').click(() => this.downloadCurrentPage());
+
+    // Navigation in fullscreen
+    $('#fullscreenReader').on('click', '.reader-content', (e) => {
+        const clickX = e.clientX;
+        const width = window.innerWidth;
+        if (clickX < width / 2) {
+            this.prevPage();
+        } else {
+            this.nextPage();
+        }
+    });
+
+    // Unbind existing events to prevent multiple bindings
+    $(document).off('click', '.prev-page, .next-page, .prev-area, .next-area');
+
+    $(document).on('click', '.prev-page', (e) => {
+        e.preventDefault();
+        this.prevPage();
+    });
+
+    $(document).on('click', '.next-page', (e) => {
+        e.preventDefault();
+        this.nextPage();
+    });
+
+    // Add click handlers for navigation areas
+    $(document).on('click', '.prev-area', (e) => {
+        e.preventDefault();
+        this.prevPage();
+    });
+
+    $(document).on('click', '.next-area', (e) => {
+        e.preventDefault();
+        this.nextPage();
+    });
+
+    // Keydown events for arrow keys
     $(document).off('keydown').on('keydown', (e) => {
         if ($('#fullscreenReader').is(':visible') || $('#read-manga').is(':visible')) {
-            console.log(`Key pressed: ${e.key}`);
-            console.log(`Current page before action: ${this.currentPage}`);
-
             switch(e.key) {
                 case 'ArrowLeft':
                     e.preventDefault();
-                    if (this.currentPage > 1) {
-                        this.currentPage--;
-                        console.log(`Page decreased to: ${this.currentPage}`);
-                        this.updatePage();
-                    }
+                    this.prevPage();
                     break;
                 case 'ArrowRight':
                     e.preventDefault();
-                    if (this.currentPage < this.totalPages) {
-                        this.currentPage++;
-                        console.log(`Page increased to: ${this.currentPage}`);
-                        this.updatePage();
-                    }
+                    this.nextPage();
                     break;
                 case 'Escape':
                     if ($('#fullscreenReader').is(':visible')) {
@@ -354,12 +381,8 @@ $(document).on('click', '.chapter-select', (e) => {
                     }
                     break;
             }
-
-            console.log(`Current page after action: ${this.currentPage}`);
         }
     });
-
-
 
         // Fullscreen controls
     $('.enter-fullscreen').click(() => this.enterFullscreen());
@@ -378,6 +401,8 @@ $(document).on('click', '.chapter-select', (e) => {
     });
     }
 
+
+
 enterFullscreen() {
     const currentPage = $('.manga-page').attr('src');
     $('.manga-page-fs').attr('src', currentPage);
@@ -395,21 +420,37 @@ updateFullscreenInfo() {
     $('.page-info').text(`Volume ${this.currentVolume} Chapter ${this.currentChapter} - Page ${this.currentPage}/${this.totalPages}`);
 }
 
-prevPage() {
+debounce(func, delay) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+prevPage = this.debounce(function() {
     if (this.currentPage > 1) {
+        console.log(`Going to previous page: ${this.currentPage - 1}`); // Debug log
         this.currentPage--;
         this.updatePage();
+    } else {
+        console.log("Already on the first page."); // Debug log
     }
-}
+}, 300);
 
-nextPage() {
+nextPage = this.debounce(function() {
     if (this.currentPage < this.totalPages) {
+        console.log(`Going to next page: ${this.currentPage + 1}`); // Debug log
         this.currentPage++;
         this.updatePage();
+    } else {
+        console.log("Already on the last page."); // Debug log
     }
-}
+}, 300);
 
 updatePage() {
+    console.log(`Updating page to: ${this.currentPage}`); // Debug log
     const pagePath = `assets/img/Manga/Volume-${this.currentVolume}/v${this.currentVolume}c${this.currentChapter.toString().padStart(3, '0')}/${this.currentPage.toString().padStart(3, '0')}.jpg`;
     $('.manga-page, .manga-page-fs').attr('src', pagePath);
     $('.page-counter').text(`Page ${this.currentPage}/${this.totalPages}`);
