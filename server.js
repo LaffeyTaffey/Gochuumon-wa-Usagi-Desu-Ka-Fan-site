@@ -90,5 +90,5 @@ app.use((req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`🐰 Welcome to the Rabbit House! Server is hopping on http://localhost:${PORT} 🐰`);
 });

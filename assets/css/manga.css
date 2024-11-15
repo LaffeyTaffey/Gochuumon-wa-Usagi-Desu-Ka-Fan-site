@@ -110,7 +110,6 @@
     }
 }
 
-/* Add these to your manga.css */
 .manga-reader-card {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: none;
@@ -277,5 +276,164 @@
 
     to {
         opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Manga Reader Mobile Optimizations */
+    .manga-reader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .manga-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+    }
+
+    .manga-title {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    .manga-controls {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .manga-btn {
+        flex-grow: 1;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .manga-content {
+        padding: 0.5rem;
+    }
+
+    .manga-page {
+        max-height: 85vh;
+        width: 100%;
+    }
+
+    .manga-navigation {
+        position: fixed;
+        bottom: 0.5rem;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 0.5rem;
+        padding: 0.3rem;
+    }
+
+    .page-counter {
+        font-size: 0.9rem;
+    }
+
+    .back-to-entries {
+        top: 0.5rem;
+        left: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Fullscreen Reader Mobile Adjustments */
+    .fullscreen-reader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        z-index: 9999;
+    }
+
+    .reader-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+    }
+
+    .reader-controls {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
+
+    .reader-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .page-info {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .reader-content {
+        height: calc(100% - 80px); /* Adjust for header */
+    }
+
+    .manga-page-fs {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    /* Swipe Navigation Improvements */
+    .navigation-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .prev-area, 
+    .next-area {
+        flex: 1;
+        cursor: pointer;
+        opacity: 0; /* Invisible but still interactive */
+    }
+}
+
+/* Touch-friendly Adjustments */
+@media (pointer: coarse) {
+    .manga-page, 
+    .manga-page-fs {
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* Enhance tap targets */
+    .manga-btn, 
+    .reader-btn, 
+    .back-to-entries {
+        min-height: 44px; /* Recommended minimum tap target size */
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Improve dropdown menus for mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    .dropdown-item {
+        padding: 0.75rem 1rem; /* Larger touch target */
     }
 }
