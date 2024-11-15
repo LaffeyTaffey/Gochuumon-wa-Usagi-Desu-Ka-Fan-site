@@ -595,8 +595,12 @@ body {
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.5s ease, visibility 0.5s ease;
-    visibility: visible;
+    visibility: hidden;
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.welcome-screen.show {
+    visibility: visible;
 }
 
 .welcome-screen.fade-out {

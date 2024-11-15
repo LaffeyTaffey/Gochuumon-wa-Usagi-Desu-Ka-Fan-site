@@ -13,6 +13,12 @@ $(document).ready(function() {
         { text: "も聞いてください", subtitle: "please feel free to ask me.", start: 7.9, end: 8.8 }
     ];
 
+    // Check if the welcome message has already been shown
+    if (!sessionStorage.getItem('welcomeShown')) {
+        welcomeScreen.addClass('show'); // Show the welcome screen
+        sessionStorage.setItem('welcomeShown', 'true'); // Set the flag to true
+    }
+
     function updateSubtitles(time) {
         const currentPhrase = phrases.find(phrase => time >= phrase.start && time < phrase.end);
         if (currentPhrase) {
@@ -39,10 +45,10 @@ $(document).ready(function() {
     audio.addEventListener('ended', function() {
         // Add the fade-out class
         welcomeScreen.addClass('fade-out');
-        
+
         // Remove the element after the transition
         setTimeout(() => {
-            welcomeScreen.remove();
+            welcomeScreen.remove(); // Or hide it instead of removing it
         }, 500); // This should match the transition duration in CSS
     });
 });
