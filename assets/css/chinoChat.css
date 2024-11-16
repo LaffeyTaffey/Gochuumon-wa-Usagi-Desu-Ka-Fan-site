@@ -304,6 +304,7 @@
     background: linear-gradient(135deg, var(--cream-white), var(--chino-blue));
     border: 2px solid var(--chino-blue);
     font-family: 'Comic Sans MS', cursive;
+    color: black;
 }
 
 .chat-bubble.show {
