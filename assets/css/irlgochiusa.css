@@ -3,6 +3,21 @@
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#irl-gochiuma-locations::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 183, 197, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 105, 180, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .section-title {
@@ -10,6 +25,8 @@
     text-align: center;
     margin-bottom: 1.5rem;
     color: #6B4423;
+    position: relative;
+    z-index: 2;
 }
 
 .content-text {
@@ -88,18 +105,45 @@
 }
 
 .credits {
+    background-color: var(--background);
+    border-radius: 10px;
+    padding: 15px;
     margin-bottom: 1rem;
-    font-size: 14px;
-    color: #6B4423;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.credits:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .credits a {
     color: #FF69B4;
     text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.credits a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #FF69B4;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 .credits a:hover {
-    text-decoration: underline;
+    color: #FF1493;
+}
+
+.credits a:hover::after {
+    transform: scaleX(1);
 }
 
 .irl-location {
@@ -137,16 +181,25 @@
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    gap: 10px;
 }
 
 .map-links a {
-    color: var(--primary-pink);
+    flex: 1;
+    background: linear-gradient(to right, #FFB7C5, #FFC8D6);
+    color: #6B4423;
     text-decoration: none;
-    transition: color var(--transition-duration);
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .map-links a:hover {
-    color: var(--hover-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right, #FF69B4, #FFB6C1);
 }
 
 iframe {
@@ -188,6 +241,12 @@ iframe {
     display: flex;
     justify-content: space-between;
     margin: 1rem 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-placeholder:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .location-placeholder img {
@@ -197,14 +256,27 @@ iframe {
 }
 
 .static-anime-image, .static-irl-photo {
-    flex: 1; /* Equal width for both static images */
-    margin: 0 10px; /* Add margin for spacing */
+    flex: 1;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
 .static-anime-image img, .static-irl-photo img {
-    width: 100%; /* Ensure images fill their container */
-    border-radius: 10px; /* Maintain rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.location-placeholder:hover .static-anime-image img,
+.location-placeholder:hover .static-irl-photo img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
 }
 
 body {
