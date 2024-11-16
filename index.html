@@ -12,6 +12,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <!-- Local -->
     <link rel="stylesheet" href="assets/css/usagi.css">
     <link rel="stylesheet" href="assets/css/news.css">
@@ -1898,7 +1900,7 @@
 </div>
 
 <section id="irl-gochiuma-locations" class="section" data-aos="fade-up">
-    <h2>Colmar, France: Home of Gochuumon wa Usagi Desu Ka?</h2>
+    <h2 class="section-title">Colmar, France: Home of Gochuumon wa Usagi Desu Ka?</h2>
 
     <div class="credits">
         <p>
@@ -1909,58 +1911,85 @@
         <p>Posted by infinitezenith on November 1, 2015</p>
     </div>
 
-    <p data-aos="fade-up">
+    <p class="content-text" data-aos="fade-up">
         That <em>Gochuumon wa Usagi Desu Ka?</em> is set in a town inspired by France’s Colmar is a badly-kept secret. Located in the Alsace region of north-eastern France, Colmar is a town with a population of roughly 67,214 (as of 2009, with a metro population of 126,957) and is best known for its well-preserved old town, museums, and landmarks. Colmar was founded in the ninth century and changed hands several times during the course of its history: it was taken by Sweden during the Thirty Years’ War in 1632, re-conquered by King Louis XIV in 1673 and annexed into Prussia in 1871 after the Franco-Prussian War. Returned to France after World War I as a part of the terms outlined in the Treaty of Versailles, Nazi Germany annexed Colmar in 1940 and finally, in 1945, Colmar was returned back to France. The area has a sunny and dry climate as a result of its proximity to the mountains, and consequently, Colmar is home to some of the best Alsace wine. Despite its turbulent history, Colmar’s old town remains well-preserved, spared the razing and strategic bombing that leveled cities throughout Europe during wartime: Germanic and French influence is seen in its sandstone and timber-framed buildings, and its fairy tale-like atmosphere means Colmar serves as the inspiration for <em>Gochuumon wa Usagi Desu Ka?</em>.
     </p>
 
-    <div class="irl-location" data-aos="fade-up">
-        <div class="anime-image">
-            <img src="assets/img/irlgochumon/1anime.webp" alt="Anime Location" class="location-img">
+    <div class="location-placeholder" id="location-1" data-aos="fade-up">
+            <div class ="static-anime-image">
+                <img src="assets/img/irlgochumon/1anime.webp" alt="Anime Location" class="location-img">
+            </div>
+            <div class="static-irl-photo">
+                <img src="assets/img/irlgochumon/1irl.jpg" alt="IRL Photo" class="location-img">
+            </div>
         </div>
-        <div class="irl-photo">
-            <img src="assets/img/irlgochumon/1irl.jpg" alt="IRL Photo" class="location-img">
+
+    <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/1anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/1irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
         </div>
     </div>
 
-    <p data-aos="fade-up">
+    <p class="content-text" data-aos="fade-up">
         I believe this is one of my larger location posts, rolled on in response to requests for an English-language
         variant of the comparison between the town of <em>Gochuumon wa Usagi Desu Ka?</em> and Colmar, France. Here,
         Cocoa is walking down Grand Rue (Main Street) in search of her accommodations. Some 500 meters long, a large
         number of Colmar’s major attractions line this street.
     </p>
 
-    <div class="map-container" data-aos="fade-up">
-    <h4>View on Google Maps</h4>
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!4v1731698971550!6m8!1m7!1sUDeb8ZgQeR1hacX8QxoDHg!2m2!1d48.07602120420642!2d7.358850250442073!3f295.1430699413258!4f13.314338862111114!5f0.7820865974627469" 
-        width="600" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <div class="map-links">
-        <a href="https://www.google.com/maps/@48.0760212,7.3588503,3a,75y,295.14h,103.31t" target="_blank">52 Grand Rue</a>
-        <a href="https://maps.app.goo.gl/VTLSvNjum6UFvziG6" target="_blank">52 Grand Rue, 68000 Colmar, France</a>
-    </div>
+    <div class="map-container interactive-map" data-aos="fade-up">
+        <h4>View on Google Maps</h4>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!4v1731698971550!6m8!1m7!1sUDeb8ZgQeR1hacX8QxoDHg!2m2!1d48.07602120420642!2d7.358850250442073!3f295.1430699413258!4f13.314338862111114!5f0.7820865974627469" 
+            loading="lazy" 
+            allowfullscreen>
+        </iframe>
+        <div class="map-links">
+            <a href="https://www.google.com/maps/@48.0760212,7.3588503,3a,75y,295.14h,103.31t" target="_blank">52 Grand Rue</a>
+            <a href="https://maps.app.goo.gl/VTLSvNjum6UFvziG6" target="_blank">52 Grand Rue, 68000 Colmar, France</a>
+        </div>
     </div>
 
         <h4 data-aos="fade-up">21 Rue des Marchands, 68000 Colmar, France</h4>
-        <p data-aos="fade-up">Branching off Grand Rue is Rue des Marchands (Merchant’s Street), a smaller street lined with shops.
+        <p class="content-text" data-aos="fade-up">Branching off Grand Rue is Rue des Marchands (Merchant’s Street), a smaller street lined with shops.
         Because Gochuumon wa Usagi Desuk Ka? depicts the passage of seasons over its run, one wonders how accurate
         the anime depiction of the climate was, and it turns out that compared to Colmar, summers aren’t quite as hot,
         while winters are a bit cooler. Colmar’s geography means that it has a sunny and dry microclimate,
         so rain and snow are infrequent.
         </p>
+
         <div class="location-placeholder" id="location-2" data-aos="fade-up">
-            <div class ="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/2anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/2irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/2anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/2irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">
 
@@ -1981,20 +2010,35 @@
 
     <h4 data-aos="fade-up">Rue des Boulangers 68000 Colmar, France</h4>
 
-        <p data-aos="fade-up">Rabbit House’s architecture was inspired by two separate buildings: its lower floors are inspired
+        <p class="content-text" data-aos="fade-up">Rabbit House’s architecture was inspired by two separate buildings: its lower floors are inspired
         by those of a similar building on Rue des Boulangers, with its distinct window shutters. Numerous
         buildings in Colmar are timber-framed, an architectural feature that was commonplace prior to the
         nineteenth century. Rather than dimensional lumber used in modern wooden-framed buildings,
         timber-framed buildings uses logs or tree trunks to form the building’s frame.
         </p>
         <div class="location-placeholder" id="location-3" data-aos="fade-up">
-            <div class ="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/3anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/3irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/3anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/3irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">
             
@@ -2007,19 +2051,34 @@
     </div>
         <h4 data-aos="fade-up">Rue du Chasseur</h4>
 
-        <p data-aos="fade-up">A shot that allows for the whole of Rabbit House to be seen shows that the upper floor likely
+        <p class="content-text" data-aos="fade-up">A shot that allows for the whole of Rabbit House to be seen shows that the upper floor likely
         took inspiration from a building on Rue du Chasseur: the narrow taper of the roof and singular
         window seen in Rabbit House is mirrored in a real-world shop. Timber-framed buildings allow for
         open spaces and can be quite energy efficient, but highly difficult to maintain.
         </p>
         <div class="location-placeholder" id="location-4" data-aos="fade-up">
-            <div class ="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/4anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/4irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/4anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/4irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">
             
@@ -2032,18 +2091,33 @@
     </div>
     <h4 data-aos="fade-up">All. du Champ de Mars</h4>
 
-        <p data-aos="fade-up">Cocoa checks her heading near Champ de Mars, a public park that was laid out in 1745.
+        <p class="content-text" data-aos="fade-up">Cocoa checks her heading near Champ de Mars, a public park that was laid out in 1745.
         While not seen in the photographs here, there’s also a central fountain topped by the statue
         of Admiral Bruat built by Bartholdi in 1864.
         </p>
         <div class="location-placeholder" id="location-5" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/5anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/5irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/5anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/5irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
     <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2056,7 +2130,7 @@
 
     <h4 data-aos="fade-up">Rue du Général de Gaulle</h4>
 
-        <p data-aos="fade-up">One of the coffee shops in Gochuumon wa Usagi Desu Ka? features a distinct looking sign
+        <p class="content-text" data-aos="fade-up">One of the coffee shops in Gochuumon wa Usagi Desu Ka? features a distinct looking sign
         that was actually drawn off a similar-looking sign in Rue du Général de Gaulle of the village
         Riquewihr, which is only 11 kilometers from Colmar. With a population of 1308 as of 2006,
         the village widely praised for looking as it did during the sixteenth century,
@@ -2064,13 +2138,28 @@
         </p>
 
         <div class="location-placeholder" id="location-6" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/6anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/6irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/6anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/6irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2083,7 +2172,7 @@
 
     <h4 data-aos="fade-up">Bibliothèque municipale de Colmar</h4>
 
-        <p data-aos="fade-up">Cocoa and Chiya’s high school is modeled after Colmar’s Mediatheque. The building has at least five centuries’
+        <p class="content-text" data-aos="fade-up">Cocoa and Chiya’s high school is modeled after Colmar’s Mediatheque. The building has at least five centuries’
         of history: in the late 16th century, the west side of the building was utilised as a military hospital until
         was reserved for the military hospital until 1792, when it was moved to the Catherinettes.
         The building retained its function as a hospital until 1937, when the Pasteur hospital was built in Colmar’s Western
@@ -2092,13 +2181,28 @@
         </p>
 
         <div class="location-placeholder" id="location-7" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/7anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/7irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/7anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/7irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2111,19 +2215,34 @@
 
         <h4 data-aos="fade-up">Rue des Ecoles</h4>
 
-        <p data-aos="fade-up">The Lauch River which passes through the south-eastern portion of the old town known as 
+        <p class="content-text" data-aos="fade-up">The Lauch River which passes through the south-eastern portion of the old town known as 
         Venice and is lined by Rue des Ecoles. This section of the old town feels like it came straight from a fairy
         tale and has a very romantic feeling, with its colourful timber-framed buildings.
         </p>
 
         <div class="location-placeholder" id="location-8" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/8anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/8irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/8anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/8irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2136,20 +2255,35 @@
 
         <h4 data-aos="fade-up">Rue des Écoles (Quai de la Poissonnerie)</h4>
 
-        <p data-aos="fade-up">Boat tours of the canal are offered in Colmar, allowing one to languidly cruise
+        <p class="content-text" data-aos="fade-up">Boat tours of the canal are offered in Colmar, allowing one to languidly cruise
         the Lauch River. The guides giving the tour are versed in English and lasts around half an hour,
         costing six Euros per adult (around 8.70 CAD, a fantastic deal); tickets can be purchased from one of two docks,
         both of which are located near the bridge by Rue de la Poissonnerie.
         </p>
 
         <div class="location-placeholder" id="location-9" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/9anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/9irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/9anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/9irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2161,7 +2295,7 @@
         </div>
         <h4 data-aos="fade-up">Au Pont Saint Martin</h4>
 
-        <p data-aos="fade-up">The fictional town in Gochuumon wa Usagi Desu Ka? draws inspiration from other European cities,
+        <p class="content-text" data-aos="fade-up">The fictional town in Gochuumon wa Usagi Desu Ka? draws inspiration from other European cities,
         as well: there are canals in Colmar, but some of the wider sections were derived off the canals found in near Au Pont
         Saint Martin, an Alsace restaurant at the heart of Strasbourg. Strasbourg is a much larger city located 64 kilometers
         northeast of Colmar; with a population of 759,868 as of 2010, the city has an Oceanic climate with warm summers and
@@ -2169,13 +2303,28 @@
         </p>
 
         <div class="location-placeholder" id="location-10" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/10anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/10irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/10anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/10irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2188,7 +2337,7 @@
 
         <h4 data-aos="fade-up">Marché couvert de Colmar</h4>
 
-        <p data-aos="fade-up">This is an image of Colmar’s Marché couvert de Colmar (Covered Market of Colmar),
+        <p class="content-text" data-aos="fade-up">This is an image of Colmar’s Marché couvert de Colmar (Covered Market of Colmar),
         of which only a corner can be seen in the Gochuumon wa Usagi Desu Ka? screenshot.
         Located near the Lauch River at the Old Town’s southern end, the market was built in 1865,
         and its location along the river meant that goods could be delivered via boat.
@@ -2197,13 +2346,28 @@
         </p>
 
         <div class="location-placeholder" id="location-11" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/11anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/11irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/11anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/11irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2216,7 +2380,7 @@
 
         <h4 data-aos="fade-up">Pl. de l'Ancienne Douane</h4>
 
-        <p data-aos="fade-up">While Gochuumon wa Usagi Desu Ka? showcases a quiet town, Colmar is quite busy with tourists.
+        <p class="content-text" data-aos="fade-up">While Gochuumon wa Usagi Desu Ka? showcases a quiet town, Colmar is quite busy with tourists.
         Individuals with a sufficiently powerful GPU can view Colmar on Google Maps in full 3D and make use of the labels
         to pinpoint locations as I’ve done here. Unlike the town of Gochuumon wa Usagi Desu Ka?,
         which appears to have frozen in history and remained a small town, in present-day Colmar,
@@ -2224,13 +2388,28 @@
         </p>
 
         <div class="location-placeholder" id="location-12" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/12anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/12irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/12anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/12irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2243,7 +2422,7 @@
 
         <h4 data-aos="fade-up">Rue des Ecoles</h4>
 
-        <p data-aos="fade-up">Here is another shot of the river along Rue des Ecoles. Careful inspection of both images demonstrates
+        <p class="content-text" data-aos="fade-up">Here is another shot of the river along Rue des Ecoles. Careful inspection of both images demonstrates
         again the level of detail that went into creating the setting of Gochuumon wa Usagi Desu Ka?: in fact,
         I remarked in my review of the first season that the idyllic European setting was what appealed so much about the anime.
         Whereas most slice-of-life anime are set in Japan, Gochuumon wa Usagi Desu Ka? dared to go the whole nine yards in creating
@@ -2251,13 +2430,28 @@
         </p>
 
         <div class="location-placeholder" id="location-13" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/13anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/13irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/13anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/13irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2270,20 +2464,35 @@
 
         <h4 data-aos="fade-up">Széchenyi thermal bath</h4>
 
-        <p data-aos="fade-up">Not all of the locations of Gochuumon wa Usagi Desu Ka? are located in France. The large, ornate pool seen in their
+        <p class="content-text" data-aos="fade-up">Not all of the locations of Gochuumon wa Usagi Desu Ka? are located in France. The large, ornate pool seen in their
         town was inspired by Budapest’s Széchenyi thermal bath, the largest thermal/mineral bath in all of Europe.
         The bath is located along Kós Károly Stny. by Budapest’s City Park, and was designed by Győző 
         in Neo-baroque style  Construction began in 1909 and the bath opened in 1913.
         </p>
 
         <div class="location-placeholder" id="location-14" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/14anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/14irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/14anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/14irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2296,7 +2505,7 @@
 
         <h4 data-aos="fade-up">Széchenyi thermal bath 2</h4>
 
-        <p data-aos="fade-up">Széchenyi thermal bath’s water features a high concentration of  sulphate, calcium, 
+        <p class="content-text" data-aos="fade-up">Széchenyi thermal bath’s water features a high concentration of  sulphate, calcium, 
         and bicarbonate and is fed by two separate springs: one provides water at 74 °C, and the other supplies
         77 °C water. These waters are used for medicinal purposes, helping sooth degenerative joint illnesses,
         chronic and sub-acute joint inflammations.Owing to its popularity, the facility underwent a major expansion
@@ -2304,13 +2513,28 @@
         </p>
 
         <div class="location-placeholder" id="location-15" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/15anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/15irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/15anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/15irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2323,20 +2547,35 @@
 
         <h4 data-aos="fade-up">Széchenyi thermal bath 3</h4>
 
-        <p data-aos="fade-up">The entrance to the pool in Gochuumon wa Usagi Desu Ka? is actually the back of the building
+        <p class="content-text" data-aos="fade-up">The entrance to the pool in Gochuumon wa Usagi Desu Ka? is actually the back of the building
         facing the pools. regions of Hungary exhibits geothermal activity, accounting for why hot springs are present
         there. To the best of my knowledge, the extent of geothermal activity in France is not quite to the same
         extent as seen in the Rocky mountains, but thermal springs can also be found in the Alsace region.
         </p>
 
         <div class="location-placeholder" id="location-16" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/16anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/16irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/16anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/16irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2349,7 +2588,7 @@
 
         <h4 data-aos="fade-up">Gellért Thermal Bath</h4>
 
-        <p data-aos="fade-up">The outdoor pools at Széchenyi thermal bath are maintained at temperatures of 27 to 38 °C.
+        <p class="content-text" data-aos="fade-up">The outdoor pools at Széchenyi thermal bath are maintained at temperatures of 27 to 38 °C.
         Three separate pools are present: a central pool is for swimming, and two pools to the edges are intended
         for visitors to relax in. Pools in the facility’s interior are kept at 27 °C: besides acting as a pool/thermal
         springs, Széchenyi thermal bath also provides spa and massage services. Provided that an anime’s
@@ -2361,15 +2600,29 @@
         </p>
 
         <div class="location-placeholder" id="location-17" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/17anime.webp" alt="Anime Location" class="location-img">
-                <br>
                 <img src="assets/img/irlgochumon/17.1anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/17irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/17.1anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/17irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2382,20 +2635,35 @@
 
         <h4 data-aos="fade-up">Gellért Thermal Bath 2</h4>
 
-        <p data-aos="fade-up">Various architectural elements seen in the backgrounds of the original pool are 
+        <p class="content-text" data-aos="fade-up">Various architectural elements seen in the backgrounds of the original pool are 
         in Gochuumon wa Usagi Desu Ka?‘s pool, although some details have also been modified. It is presumed that
         the pool in Gochuumon wa Usagi Desu Ka? is rather smaller than Széchenyi thermal bath:
         the real thermal bath covers more than  6,220 square metres and features 15 indoor pools.
         </p>
 
         <div class="location-placeholder" id="location-18" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/18anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/18irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/18anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/18irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2408,7 +2676,7 @@
 
         <h4 data-aos="fade-up">Gellért Thermal Bath 3</h4>
 
-        <p data-aos="fade-up">This post took a fair bit of time to compile, as gathering and assembling the information
+        <p class="content-text" data-aos="fade-up">This post took a fair bit of time to compile, as gathering and assembling the information
         was a major time sink. Similar to my Glasslip locations post, this was motivated largely by the wish to provide
         an easy-to-read, English-searchable post for readers wondering about the locations of Gochuumon wa Usagi Desu Ka?
         and for any reason, do not wish to search a Japanese-language site for the content. Thus, when I make these posts,
@@ -2417,13 +2685,28 @@
         </p>
 
         <div class="location-placeholder" id="location-19" data-aos="fade-up">
-            <div class="anime-image">
+            <div class ="static-anime-image">
                 <img src="assets/img/irlgochumon/19anime.webp" alt="Anime Location" class="location-img">
             </div>
-            <div class="irl-photo">
+            <div class="static-irl-photo">
                 <img src="assets/img/irlgochumon/19irl.jpg" alt="IRL Photo" class="location-img">
             </div>
         </div>
+
+        <div class="slider-container" data-aos="fade-up">
+        <div class="slider-wrapper">
+    <!-- Anime image (overlaid image with clipping effect) -->
+            <div class="slider-image anime-image">
+                <img src="assets/img/irlgochumon/19anime.webp" alt="Anime Location">
+            </div>
+    <!-- Real-world image (base image) -->
+                <div class="slider-image irl-photo">
+                    <img src="assets/img/irlgochumon/19irl.jpg" alt="Real-life Location">
+                </div>
+    <!-- Slider handle -->
+            <div class="slider-handle"></div>
+        </div>
+    </div>
 
         <div class="map-container" data-aos="fade-up">   
         <h4>View on Google Maps</h4>
@@ -2434,7 +2717,7 @@
             </div>
         </div>
 
-        <p data-aos="fade-up">Colmar’s major attractions lie in the old town: despite its size, the old town is pedestrian friendly,
+        <p class="content-text" data-aos="fade-up">Colmar’s major attractions lie in the old town: despite its size, the old town is pedestrian friendly,
         being packed with a range of shops and restaurants that serve Alsatian cuisine (a combination of traditional French and
         Germanic techniques, making use of pork, sauerkraut, foie gras and wine). In addition, boat tours along the 
         are also offered. There are several hotels located in the Old Town with rates ranging from 25 to 200 Euros per night.
@@ -2789,5 +3072,6 @@
     <script src="assets/js/staffs.js"></script>
     <script src="assets/js/rss-gallery.js"></script>
     <script src="assets/js/chinopopup.js"></script>
+    <script src="assets/js/irlgochiusa.js"></script>
 </body>
 </html>
