@@ -1,0 +1,1 @@
+//to be implemented for animated lazy loading image (shimmer effect)
