@@ -214,55 +214,65 @@ $(document).ready(function() {
     }
 
     function createPostCard(post) {
-        if (!post.imgSrc) return '';
+    if (!post.imgSrc) return '';
 
-        const publishDate = new Date(post.published);
-        const relativeTime = formatRelativeTime(publishDate);
+    const publishDate = new Date(post.published);
+    const relativeTime = formatRelativeTime(publishDate);
+    const imgElement = new Image();
+imgElement.src = post.imgSrc;
+imgElement.onload = function() {
+    // Once the image is loaded, remove the shimmer effect and show the image
+    const shimmer = document.querySelector('.rss-post-image .shimmer');
+    shimmer.style.display = 'none'; // Hide the shimmer
+    const postImage = document.querySelector('.rss-post-image img');
+    postImage.classList.add('loaded'); // Add loaded class to fade in the image
+};
 
-        return `
-            <div class="rss-post-container" data-aos="zoom-in" data-aos-delay="50">
-                <a href="${post.link}" class="rss-post-link" target="_blank">
-                    <div class="rss-post-header">
-                        <h5 class="rss-post-title">${post.title}</h5>
-                        <div class="rss-post-meta">
-                            <span class="rss-post-author">
-                                <i class="fas fa-user"></i> ${post.author}
-                            </span>
-                            <span class="rss-post-date">
-                                <i class="fas fa-clock"></i> ${relativeTime}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="rss-post-image">
-                        <img src="${post.imgSrc}" alt="Post image" loading="lazy">
-                    </div>
-                </a>
-                <div class="rss-post-interactions">
-                    <div class="rss-interaction-container">
-                        <div class="rss-interaction-item upvote" data-votes="0">
-                            <i class="fas fa-arrow-up"></i> 
-                            <span class="rss-upvote-count">0</span>
-                        </div>
-                        <div class="rss-interaction-item downvote" data-votes="0">
-                            <i class="fas fa-arrow-down"></i>
-                            <span class="rss-downvote-count">0</span>
-                        </div>
-                        <div class="rss-interaction-item share" data-link="${post.link}">
-                            <i class="fas fa-share-alt"></i> Share
-                        </div>
-                        <div class="rss-interaction-item comment-toggle">
-                            <i class="fas fa-comment"></i> Comment
-                        </div>
-                    </div>
-                    <div class="comment-section" style="display: none;">
-                        <textarea class="comment-input" placeholder="Add a comment..."></textarea>
-                        <button class="submit-comment">Submit</button>
-                        <div class="comments-list"></div>
+    return `
+        <div class="rss-post-container" data-aos="zoom-in" data-aos-delay="50">
+            <a href="${post.link}" class="rss-post-link" target="_blank">
+                <div class="rss-post-header">
+                    <h5 class="rss-post-title">${post.title}</h5>
+                    <div class="rss-post-meta">
+                        <span class="rss-post-author">
+                            <i class="fas fa-user"></i> ${post.author}
+                        </span>
+                        <span class="rss-post-date">
+                            <i class="fas fa-clock"></i> ${relativeTime}
+                        </span>
                     </div>
                 </div>
+                <div class="rss-post-image">
+                    <div class="shimmer"></div>
+                    <img src="${post.imgSrc}" alt="Post image" loading="lazy" class="post-image" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                </div>
+            </a>
+            <div class="rss-post-interactions">
+                <div class="rss-interaction-container">
+                    <div class="rss-interaction-item upvote" data-votes="0">
+                        <i class="fas fa-arrow-up"></i> 
+                        <span class="rss-upvote-count">0</span>
+                    </div>
+                    <div class="rss-interaction-item downvote" data-votes="0">
+                        <i class="fas fa-arrow-down"></i>
+                        <span class="rss-downvote-count">0</span>
+                    </div>
+                    <div class="rss-interaction-item share" data-link="${post.link}">
+                        <i class="fas fa-share-alt"></i> Share
+                    </div>
+                    <div class="rss-interaction-item comment-toggle">
+                        <i class="fas fa-comment"></i> Comment
+                    </div>
+                </div>
+                <div class="comment-section" style="display: none;">
+                    <textarea class="comment-input" placeholder="Add a comment..."></textarea>
+                    <button class="submit-comment">Submit</button>
+                    <div class="comments-list"></div>
+                </div>
             </div>
-        `;
-    }
+        </div>
+    `;
+}
 
     function formatRelativeTime(date) {
         const now = new Date();

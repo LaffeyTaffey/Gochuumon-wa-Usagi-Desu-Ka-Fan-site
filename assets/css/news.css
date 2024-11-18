@@ -59,6 +59,8 @@
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .rss-post-container:hover {
@@ -91,22 +93,54 @@
 }
 
 .rss-post-image {
+    position: relative;
     width: 100%;
     height: 250px;
     overflow: hidden;
+}
+
+.shimmer {
+    position: absolute; /* Position the shimmer absolutely within the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    z-index: 1; /* Ensure it is above the image */
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .rss-post-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: opacity 0.3s ease;
+    opacity: 0;
 }
 
-.rss-post-container:hover .rss-post-image img {
-    transform: scale(1.05);
+.rss-post-image img.loaded {
+    opacity: 1;
 }
 
+/* Hide content when loading */
+.rss-post-content {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Add transition for opacity */
+}
+
+.rss-post-content.loaded {
+    opacity: 1; /* Show content when loaded */
+}
 
 .rss-post-interactions {
     padding: 15px;
