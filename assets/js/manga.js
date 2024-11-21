@@ -409,11 +409,17 @@ enterFullscreen() {
     $('#fullscreenReader').fadeIn(300);
     $('body').addClass('no-scroll');
     this.updateFullscreenInfo();
+
+    // Hide the sign-board and related elements
+    $('.sign-board, .chain-system, .mounting-bracket').hide();
 }
 
 exitFullscreen() {
     $('#fullscreenReader').fadeOut(300);
     $('body').removeClass('no-scroll');
+
+    // Show the sign-board and related elements again
+    $('.sign-board, .chain-system, .mounting-bracket').show();
 }
 
 updateFullscreenInfo() {

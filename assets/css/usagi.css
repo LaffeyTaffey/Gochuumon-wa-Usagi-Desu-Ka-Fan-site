@@ -91,11 +91,9 @@ body {
 .nav-logo {
     position: absolute;
     width: var(--sign-width);
-        height: var(--sign-height);
-        left: 20px;
-        top: calc(100% - var(--sign-overlap));
-    /* This makes it hang from the bottom edge */
-    margin-top: -15px;
+    height: var(--sign-height);
+    left: 20px;
+    bottom: -120px;
     perspective: 1500px;
     z-index: 1001;
     transform-style: preserve-3d;
