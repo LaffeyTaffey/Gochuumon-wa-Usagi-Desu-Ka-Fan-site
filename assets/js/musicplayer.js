@@ -200,17 +200,28 @@ handleTrackEnd() {
         }
     }
 togglePanel() {
-    console.log('Toggle panel called'); // Debug log
+    console.log('Toggle panel called'); 
+    console.log('Player panel:', this.playerPanel);
+    console.log('Music toggle:', this.musicToggle);
+
     if (this.playerPanel) {
         this.playerPanel.classList.toggle('active');
-        this.musicToggle.querySelector('i').classList.toggle('music-playing');
+        
+        // Ensure the music toggle icon exists before manipulating
+        const musicToggleIcon = this.musicToggle.querySelector('i');
+        if (musicToggleIcon) {
+            musicToggleIcon.classList.toggle('music-playing');
+        }
+
         showNotification('Music player ' + (this.playerPanel.classList.contains('active') ? 'opened' : 'closed'));
         
         if (!this.playerPanel.classList.contains('active')) {
-            this.miniPlayer.classList.add('active');
+            if (this.miniPlayer) {
+                this.miniPlayer.classList.add('active');
+            }
         }
     } else {
-        console.error('Player panel not found!'); // Debug log
+        console.error('Player panel not found!');
     }
 }
 
@@ -269,5 +280,5 @@ this.playBtn.innerHTML = '<i class="fas fa-pause"></i>';
 
 // Initialize the music player
 document.addEventListener('DOMContentLoaded', () => {
-    const player = new MusicPlayer();
+    window.musicPlayer = new MusicPlayer();
 });

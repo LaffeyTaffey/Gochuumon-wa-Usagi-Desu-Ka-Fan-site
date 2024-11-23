@@ -15,8 +15,8 @@ $(document).ready(function() {
 
     // Check if the welcome message has already been shown
     if (!sessionStorage.getItem('welcomeShown')) {
-        welcomeScreen.addClass('show'); // Show the welcome screen
-        sessionStorage.setItem('welcomeShown', 'true'); // Set the flag to true
+        welcomeScreen.addClass('show');
+        sessionStorage.setItem('welcomeShown', 'true');
     }
 
     function updateSubtitles(time) {
@@ -43,12 +43,20 @@ $(document).ready(function() {
     });
 
     audio.addEventListener('ended', function() {
-        // Add the fade-out class
-        welcomeScreen.addClass('fade-out');
+    // Add the fade-out class to trigger the CSS transition
+    welcomeScreen.addClass('fade-out');
 
-        // Remove the element after the transition
-        setTimeout(() => {
-            welcomeScreen.remove(); // Or hide it instead of removing it
-        }, 500); // This should match the transition duration in CSS
+    // Use transitionend event to ensure fade-out completes
+    welcomeScreen.one('transitionend', function() {
+        welcomeScreen.remove();
+        
+        // Play a random track
+        const player = window.musicPlayer;
+        if (player) {
+            const randomTrackIndex = Math.floor(Math.random() * player.playlist.length);
+            player.loadTrack(randomTrackIndex);
+            player.togglePlay();
+        }
     });
+});
 });

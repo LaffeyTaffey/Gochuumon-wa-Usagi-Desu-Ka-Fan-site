@@ -279,5 +279,4 @@ iframe {
 body {
     background-color: var(--background);
     color: var(--text-color);
-    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
