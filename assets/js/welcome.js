@@ -4,7 +4,7 @@ $(document).ready(function() {
     const englishSubtitle = $('.english-subtitle');
     const startButton = $('#start-button');
     const subtitleContainer = $('.subtitle-container');
-    const audio = new Audio('assets/audio/voicebank/01-1.mp3');
+    const audio = new Audio('assets/audio/Voicebank/01-1.mp3');
 
     const phrases = [
         { text: "いらっしゃいませあなたが新人さんです", subtitle: "Welcome... you must be the newcomer.", start: 0, end: 4.4 },
