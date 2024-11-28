@@ -64,7 +64,11 @@ cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
    ```
 3. Install the required Node.js packages:
    ```bash
-   npm install express axios cors xml2js
+   npm install
+   ```
+4. Run the server:
+   ```bash
+   npm start
    ```
 - 🛠️ **Technologies Used**
     - HTML5
