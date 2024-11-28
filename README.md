@@ -57,12 +57,15 @@ cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
 1. Clone the repository:
    ```bash
    git clone https://github.com/LaffeyTaffey/Gochuumon-wa-Usagi-Desu-Ka-Fan-site.git
+   ```
 2. Navigate to the project directory:
    ```bash
    cd Gochuumon-wa-Usagi-Desu-Ka-Fan-site
+   ```
 3. Install the required Node.js packages:
    ```bash
    npm install express axios cors xml2js
+   ```
 - 🛠️ **Technologies Used**
     - HTML5
     - CSS3/SASS
