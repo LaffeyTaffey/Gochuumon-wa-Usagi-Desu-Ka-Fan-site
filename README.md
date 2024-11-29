@@ -1,5 +1,11 @@
 # 🐰 Is the Order a Rabbit? (Gochuumon wa Usagi Desu ka?) Fan Site
 
+## Note
+please go to the new repository: 
+```bash
+[Repository](https://github.com/LaffeyTaffey/Gochuumon-wa-Usagi-Desu-Ka-Fan-sitev2)
+```
+
 <p align="center">
   <img src="assets/img/favico.png" alt="Rabbit House Logo" width="200"/>
 </p>
