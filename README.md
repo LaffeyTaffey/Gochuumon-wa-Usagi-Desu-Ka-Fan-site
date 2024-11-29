@@ -1,7 +1,7 @@
 # 🐰 Is the Order a Rabbit? (Gochuumon wa Usagi Desu ka?) Fan Site
 
 ## Note
-please go to the new repository: 
+please go to the new repository to pull request or view since i did an opsy: 
 ```bash
 [Repository](https://github.com/LaffeyTaffey/Gochuumon-wa-Usagi-Desu-Ka-Fan-sitev2)
 ```
